@@ -226,7 +226,7 @@ npm run migrate-passwords
 *Figure 2: User authentication page*
 
 ### Student Dashboard
-![Results](server/assets/screenshot-results.png)
+![Student Dashboard](server/assets/screenshot-student-dashboard1.png)
 *Figure 3: Student dashboard with profile, courses, and results*
 
 
@@ -243,7 +243,7 @@ npm run migrate-passwords
 *Figure 5: Course registration and management interface*
 
 ### Results View
-![Student Dashboard](server/assets/screenshot-student-dashboard1.png)
+![Results](server/assets/screenshot-results.png)
 *Figure 6: Academic results and transcript view*
 
 ### Mobile Responsive
