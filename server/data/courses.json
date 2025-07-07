@@ -1,0 +1,21 @@
+[
+  {
+    "id": "CS101",
+    "title": "Introduction to Computer Science",
+    "instructor": "Dr. A. Khan",
+    "semester": "Fall 2025"
+  },
+  {
+    "id": "CS102",
+    "title": "Data Structures",
+    "instructor": "Prof. M. Ali",
+    "semester": "Fall 2025"
+  },
+  {
+    "name": "Software",
+    "code": "softwae`",
+    "credits": 4,
+    "specialization": "Engineering",
+    "id": "1750968305386"
+  }
+]

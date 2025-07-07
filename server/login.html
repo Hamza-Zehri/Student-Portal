@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">BUET Khuzdar</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="departments.html">Departments</a></li>
+        <li><a class="active nav-btn" href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="container" style="max-width: 400px; margin: 4rem auto;">
+    <div class="feature-card">
+      <h2 style="text-align: center; margin-bottom: 1rem;">Login</h2>
+      <form id="loginForm">
+        <input type="email" id="email" placeholder="Email" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;" />
+        <input type="password" id="password" placeholder="Password" required style="width: 100%; padding: 10px; margin-bottom: 1rem; border-radius: 6px; border: 1px solid #ccc;" />
+        <button type="submit" class="nav-btn" style="width: 100%; padding: 0.7rem;">Login</button>
+      </form>
+      <p style="text-align: center; margin-top: 1rem;">Don't have an account? <a href="signup.html">Signup</a></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Our University. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

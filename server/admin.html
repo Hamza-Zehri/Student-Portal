@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Admin Dashboard</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><button class="nav-btn" onclick="logout()">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1>Welcome to Admin Panel</h1>
+      <p>Manage student accounts, courses, and results from a single place.</p>
+    </div>
+  </header>
+
+  <section class="features container">
+    <div class="feature-card">
+      <h2>Manage Students</h2>
+      <div id="studentAccounts">
+        <!-- Student account management interface goes here -->
+        <p>No student data loaded yet.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <h2>Manage Courses</h2>
+      <a class="nav-btn" href="courses.html">Go to Course Management</a>
+    </div>
+
+    <div class="feature-card">
+      <h2>Upload Results</h2>
+      <a class="nav-btn" href="results.html">Go to Result Management</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Our University Admin Panel</p>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>

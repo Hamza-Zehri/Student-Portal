@@ -1,0 +1,10 @@
+[
+    {
+      "studentEmail": "hamza@student.com",
+      "grades": [
+        {"courseId": "CS101", "marks": 85},
+        {"courseId": "CS102", "marks": 90}
+      ]
+    }
+  ]
+  

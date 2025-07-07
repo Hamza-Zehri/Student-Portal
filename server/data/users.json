@@ -1,0 +1,20 @@
+[
+    {
+      "name": "Hamza Asad",
+      "email": "hamza@student.com",
+      "password": "123456",
+      "role": "student",
+      "courses": ["CS101", "CS102"],
+      "results": {
+        "CS101": 85,
+        "CS102": 90
+      }
+    },
+    {
+      "name": "Admin",
+      "email": "admin@university.com",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ]
+  

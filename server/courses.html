@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Course Manager</div>
+      <ul class="nav-links">
+        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+        <li><button class="nav-btn" onclick="logout()">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="container">
+    <h1>Course Management</h1>
+    <form id="courseForm" style="margin-bottom: 1rem;">
+      <input type="text" id="courseName" placeholder="Course Name" required />
+      <input type="text" id="courseCode" placeholder="Course Code" required />
+      <button type="submit" class="nav-btn">Add Course</button>
+    </form>
+
+    <h2>All Courses</h2>
+    <ul id="courseList"></ul>
+  </section>
+
+  <script src="assets/script.js"></script>
+  <script>
+    const courseForm = document.getElementById('courseForm');
+    const courseList = document.getElementById('courseList');
+    let courses = JSON.parse(localStorage.getItem('courses')) || [];
+
+    function renderCourses() {
+      courseList.innerHTML = '';
+      if (courses.length === 0) {
+        courseList.innerHTML = '<li>No courses available.</li>';
+        return;
+      }
+
+      courses.forEach((course, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${course.name} (${course.code}) `;
+        const delBtn = document.createElement('button');
+        delBtn.textContent = 'Remove';
+        delBtn.onclick = () => {
+          courses.splice(index, 1);
+          localStorage.setItem('courses', JSON.stringify(courses));
+          renderCourses();
+        };
+        li.appendChild(delBtn);
+        courseList.appendChild(li);
+      });
+    }
+
+    courseForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('courseName').value;
+      const code = document.getElementById('courseCode').value;
+      courses.push({ name, code });
+      localStorage.setItem('courses', JSON.stringify(courses));
+      courseForm.reset();
+      renderCourses();
+    });
+
+    renderCourses();
+  </script>
+</body>
+</html>

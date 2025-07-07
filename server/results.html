@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Result Management</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">Result Manager</div>
+      <ul class="nav-links">
+        <li><a href="admin-dashboard.html">Admin Dashboard</a></li>
+        <li><button class="nav-btn" onclick="logout()">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="container">
+    <h1>Upload Student Result</h1>
+    <form id="resultForm" style="margin-bottom: 1rem;">
+      <input type="email" id="studentEmail" placeholder="Student Email" required />
+      <input type="text" id="course" placeholder="Course Name" required />
+      <input type="number" id="marks" placeholder="Marks" required />
+      <button type="submit" class="nav-btn">Upload Result</button>
+    </form>
+  </section>
+
+  <script src="assets/script.js"></script>
+  <script>
+    const resultForm = document.getElementById('resultForm');
+    let results = JSON.parse(localStorage.getItem('results')) || [];
+
+    resultForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('studentEmail').value;
+      const course = document.getElementById('course').value;
+      const marks = document.getElementById('marks').value;
+      results.push({ email, course, marks });
+      localStorage.setItem('results', JSON.stringify(results));
+      resultForm.reset();
+    });
+  </script>
+</body>
+</html>

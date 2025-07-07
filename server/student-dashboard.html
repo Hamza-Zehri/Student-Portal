@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Student Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Student Portal</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><button class="nav-btn" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Welcome, <span id="studentName">Student</span></h1>
+            <p>Your personal dashboard showing profile, registered courses, and results.</p>
+        </div>
+    </header>
+
+    <section class="student-features">
+        <div class="feature-card">
+            <h2>Your Profile</h2>
+            <div id="studentProfile">
+                <p>Loading profile...</p>
+            </div>
+            <button onclick="openEditProfile()" class="btn">Edit Profile</button>
+        </div>
+
+        <div class="feature-card">
+            <h2>Registered Courses</h2>
+            <div id="courseList">
+                <p>Loading courses...</p>
+            </div>
+            <button onclick="openCourseRegistration()" class="btn">Register/Drop Courses</button>
+        </div>
+
+        <div class="feature-card">
+            <h2>Academic Results</h2>
+            <div id="resultList">
+                <p>Loading results...</p>
+                <div class="result-item">
+                    <h3>Course Name (Course Code)</h3>
+                    <div class="result-details">
+                        <div>
+                            <strong>Credits:</strong>
+                            <span>3</span>
+                        </div>
+                        <div>
+                            <strong>Grade:</strong>
+                            <span>A</span>
+                        </div>
+                        <div>
+                            <strong>GPA:</strong>
+                            <span>4.0</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div id="cgpaDisplay">
+                <p>Your Current CGPA:</p>
+                <span>3.85</span>
+            </div>
+            <button onclick="downloadTranscript()" class="btn">Download Transcript</button>
+        </div>
+    </section>
+
+    <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Profile</h2>
+            <form id="editProfileForm">
+                <input type="text" id="editName" placeholder="Name" required>
+                <input type="email" id="editEmail" placeholder="Email" required>
+                <input type="password" id="editPassword" placeholder="New Password">
+                <input type="number" id="editSemester" placeholder="Semester (1-8)" min="1" max="8">
+                <select id="editDepartment" required>
+                    <option value="">Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Electronic Engineering">Electronic Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Mining Engineering">Mining Engineering</option>
+                </select>
+                <button type="submit" class="btn">Save Changes</button>
+                <button type="button" class="btn btn-secondary" onclick="closeEditProfile()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="courseRegistrationModal" class="modal">
+        <div class="modal-content">
+            <h2>Course Registration</h2>
+            <div id="availableCourses" class="scrollable-content"></div>
+            <button class="btn btn-secondary" onclick="closeCourseRegistration()">Close</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 BUET Khuzdar - Student Dashboard</p>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>

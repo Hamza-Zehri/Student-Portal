@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard - Balochistan University of Engineering & Technology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body class="admin-dashboard">
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">BUET Admin Panel</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><button class="nav-btn" onclick="logout()">Logout</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Welcome, Admin</h1>
+            <p>Manage students, courses, and results below for Balochistan University of Engineering & Technology.</p>
+        </div>
+    </header>
+
+    <section class="features container">
+        <div class="feature-card">
+            <h2>Student Management</h2>
+            <div id="studentList" class="data-list"></div>
+            <button onclick="openStudentModal()" class="btn">Add New Student</button>
+        </div>
+
+        <div class="feature-card">
+            <h2>Course Management</h2>
+            <div id="courseList" class="data-list"></div>
+            <button onclick="openCourseModal()" class="btn">Add New Course</button>
+        </div>
+
+        <div class="feature-card">
+            <h2>Submit New Result</h2>
+            <div id="resultUpload" class="form-section">
+                <select id="courseSelect" class="form-control" title="Select Course"></select>
+                <select id="studentSelect" class="form-control" title="Select Student"></select>
+                <input type="number" id="marks" min="0" max="100" placeholder="Enter marks (0-100)" class="form-control">
+                <button onclick="submitResult()" class="btn btn-primary">Submit Result</button>
+            </div>
+            <button onclick="openResultViewModal()" class="btn btn-secondary" style="margin-top: 1rem;">View All Results</button>
+        </div>
+    </section>
+
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeStudentModalX">&times;</span> <h2>Add/Edit Student</h2>
+            <form id="studentForm" onsubmit="handleStudentSubmit(event)">
+                <input type="hidden" id="studentId" value="">
+                <input type="text" id="studentName" placeholder="Student Name" required>
+                <input type="email" id="studentEmail" placeholder="Student Email" required>
+                <input type="text" id="studentRollNo" placeholder="Roll No (e.g., 21-CS-001)" required>
+                <input type="password" id="studentPassword" placeholder="Password (min 6 characters)" minlength="6" required>
+                <select id="studentSpecialization" required>
+                    <option value="">Select Specialization</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Electronic Engineering">Electronic Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Mining Engineering">Mining Engineering</option>
+                </select>
+                <input type="number" id="studentSemester" placeholder="Semester (1-8)" min="1" max="8">
+                <button type="submit" class="btn btn-primary">Save Student</button>
+                <button type="button" id="cancelStudentModalBtn" class="btn btn-secondary">Cancel</button> </form>
+        </div>
+    </div>
+
+    <div id="courseModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeCourseModalX">&times;</span> <h2>Add/Edit Course</h2>
+            <form id="courseForm" onsubmit="handleCourseSubmit(event)">
+                <input type="hidden" id="courseId" value="">
+                <input type="text" id="courseName" placeholder="Course Name" required>
+                <input type="text" id="courseCode" placeholder="Course Code (e.g., CS-101)" required>
+                <input type="number" id="courseCredits" placeholder="Credits (e.g., 3)" min="1" max="6" required>
+                <select id="courseSpecialization" required>
+                    <option value="">Select Specialization</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Electronic Engineering">Electronic Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Mining Engineering">Mining Engineering</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Save Course</button>
+                <button type="button" id="cancelCourseModalBtn" class="btn btn-secondary">Cancel</button> </form>
+        </div>
+    </div>
+
+    <div id="resultViewModal" class="modal">
+        <div class="modal-content large-modal">
+            <span class="close-button" id="closeResultViewModalX">&times;</span> <h2>Manage All Results</h2>
+            <div class="search-bar">
+                <input type="text" id="resultSearchInput" placeholder="Search by Student Name, Course, or ID..."> </div>
+            <div id="resultTableContainer" class="table-container">
+                </div>
+            <div class="modal-actions">
+                <button id="downloadCsvBtn" class="btn btn-primary">Download as CSV</button> <button type="button" id="closeResultViewModalBtn" class="btn btn-secondary">Close</button> </div>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal">
+        <div class="modal-content small-modal">
+            <h2>Confirm Action</h2>
+            <p id="confirmMessage"></p>
+            <button id="confirmYesBtn" class="btn btn-danger">Yes</button>
+            <button id="confirmNoBtn" class="btn btn-secondary">No</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Balochistan University of Engineering & Technology - Admin Dashboard</p>
+        </div>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
